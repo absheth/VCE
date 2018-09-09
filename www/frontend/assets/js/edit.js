@@ -4,7 +4,7 @@ function configureEditButtons() {
 
     var create = document.getElementById('edit_button');
     create.addEventListener("click", editVlan, false);
-    
+
     var cancel = document.getElementById('cancel_button');
     cancel.addEventListener("click", cancelVlan, false);
 }
@@ -14,10 +14,10 @@ function loadVlanDetails() {
     var name      = cookie.switch;
     var vlanId    = cookie.selectedVlanId;
     var workgroup = cookie.workgroup;
-    
+
     var crumb = document.getElementById("switch_name_crumb");
     crumb.innerHTML = name;
-    
+
     var url = baseUrl + 'access.cgi?method=get_vlan_details';
     url += '&workgroup=' + workgroup;
     url += '&vlan_id=' + vlanId;
@@ -28,8 +28,8 @@ function loadVlanDetails() {
             }
 
             var circuit = data.results[0].circuit;
-            console.log(circuit);
-            
+            // console.log(circuit);
+
             var desc = document.getElementById('description');
             desc.value = circuit.description;
 
@@ -71,13 +71,13 @@ function editVlan(e) {
     var name      = cookie.switch;
     var vlanId    = cookie.selectedVlanId;
     var workgroup = cookie.workgroup;
-    
+
     var desc = document.getElementById('description');
     var text = desc.value;
-    
+
     var vlan = document.getElementById('vlan');
     var vlan_id = vlan.options[vlan.selectedIndex].value;
-    
+
     var endpoints = document.forms[1].endpoint;
     if(typeof endpoints === 'undefined')
         return displayError('Please select atleast one endpoint');
@@ -91,11 +91,11 @@ function editVlan(e) {
         endpoints = [endpoints.value];
     }
 
-    console.log(text);
-    console.log(vlan_id);
-    console.log(endpoints);
-    console.log(vlanId);
-    
+    // console.log(text);
+    // console.log(vlan_id);
+    // console.log(endpoints);
+    // console.log(vlanId);
+
     var url = baseUrl + 'provisioning.cgi?method=edit_vlan';
     url += '&workgroup=' + workgroup;
     url += '&description=' + text;
@@ -106,10 +106,10 @@ function editVlan(e) {
         return '&port=' + e;
     }).join('');
 
-    console.log(url);
+    // console.log(url);
     fetch(url, {method: 'get', credentials: 'include'}).then(function(response) {
         response.json().then(function(data) {
-            console.log(data);
+            // console.log(data);
             if (typeof data.error !== 'undefined') {
                 return displayError(data.error.msg);
             }

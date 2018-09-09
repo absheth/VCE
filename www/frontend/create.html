@@ -1,108 +1,137 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>vce</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
-    <link rel="stylesheet" href="assets/css/Footer-Clean.css">
-    <link rel="stylesheet" href="assets/css/Footer-Dark.css">
-    <link rel="stylesheet" href="assets/css/Header-Dark.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
-</head>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>vce</title>
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
+        <link rel="stylesheet" href="assets/css/Footer-Clean.css">
+        <link rel="stylesheet" href="assets/css/Footer-Dark.css">
+        <link rel="stylesheet" href="assets/css/Header-Dark.css">
+        <link rel="stylesheet" href="assets/css/styles.css">
+    </head>
 
-<body>
-    <div>
-        <div class="header-dark">
-            <nav class="navbar navbar-default navigation-clean-search">
-                <div class="container">
-                    <div class="navbar-header"><a class="navbar-brand" href="#">Virtual Customer Equipment </a><button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div>
-                    <div
-                        class="collapse navbar-collapse" id="navcol-1">
-                        <ul class="nav navbar-nav">
-                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Switches <span class="caret"></span></a>
-                                <ul class="dropdown-menu" role="menu" id="switch_menu">
-                                    <li role="presentation"><a href="#">sw.guam </a></li>
-                                    <li role="presentation"><a href="#">sw2.seattle </a></li>
-                                    <li role="presentation"><a href="#">exsx.la </a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <form class="navbar-form navbar-left" target="_self">
-                            <div class="form-group"><label class="control-label" for="search-field"></label></div>
-                        </form>
-                </div>
-        </div>
-        </nav>
-    </div>
-    </div>
-    <div style="background-color:#f0f0f0;">
-        <ol class="breadcrumb container">
-            <li><a href="index.html"><span>Home</span></a></li>
-            <li><a href="index.html"><span>Switches </span></a></li>
-            <li><a><span id="switch_name_crumb">sw.guam.big.net</span></a></li>
-        </ol>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="alert alert-danger" role="alert" id="error" style="display:none;"><span id="error_text"> </span><button class="btn btn-danger" type="button" id="error_exit" style="background-color:rgb(231, 76, 60);padding:0px 5px;float:right;"><i class="glyphicon glyphicon-remove"></i></button></div>
-                <form>
-                    <div class="form-group"><label class="control-label">Description </label><input class="form-control" type="text" placeholder="Simple VLAN" id="description" style="min-width:360px;width:90%;"></div>
-                    <div class="form-group"><label class="control-label">VLAN </label><select class="form-control" id="vlan" style="min-width:360px;width:90%;"><optgroup label="This is a group" id="vlan_optgroup"><option value="12" selected="">200</option><option value="13">210</option><option value="14">220</option></optgroup></select></div>
-                    <div
-                        id="endpoint-container"><label>Endpoints </label></div>
-            <div class="col-md-12" style="padding:0px;"><button class="btn btn-info" type="button" id="create_endpoint_button" style="min-width:360px;width:90%;"><i class="glyphicon glyphicon-plus"></i> Add Endpoint</button></div><button class="btn btn-success" type="button" id="create_button"
-                style="margin:5px 5px 5px 0px;">Create </button><button class="btn btn-danger" type="button" id="cancel_button">Cancel </button></form>
-        </div>
-    </div>
-    </div>
-    <div></div>
-    <div class="footer-dark">
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-md-push-6 item text">
-                        <h3>Virtrual Customer Equipment</h3>
-                        <p>Virtual Customer Equipment (VCE) provides a means for multiple users to jointly manage network exchange point resources through a simple web based customer centric provisioning portal.&nbsp;&nbsp;The system is collaboration between
-                            CENIC and Indiana University GlobalNOC. </p>
+    <body>
+        <div>
+            <div class="header-dark">
+                <nav class="navbar navbar-default navigation-clean-search">
+                    <div class="container">
+                        <div class="navbar-header"><a class="navbar-brand" href="#">Virtual Customer Equipment </a><button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div>
+                        <div
+                            class="collapse navbar-collapse" id="navcol-1">
+                            <ul class="nav navbar-nav">
+                                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Switches <span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu" id="switch_menu">
+                                        <li role="presentation"><a href="#">sw.guam </a></li>
+                                        <li role="presentation"><a href="#">sw2.seattle </a></li>
+                                        <li role="presentation"><a href="#">exsx.la </a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <form class="navbar-form navbar-left" target="_self">
+                                <div class="form-group"><label class="control-label" for="search-field"></label></div>
+                            </form>
+                        </div>
                     </div>
-                    <div class="col-md-3 col-md-pull-6 col-sm-4 item">
-                        <h3>Support </h3>
-                        <ul>
-                            <li><a href="mailto:nac@tick.globalnoc.iu.edu?Subject=VCE%20Issue%20Report">Report Issue</a></li>
-                            <li><a href="https://globalnoc.iu.edu/">Documentation </a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3 col-md-pull-6 col-sm-4 item">
-                        <h3>About</h3>
-                        <ul>
-                            <li><a href="https://www.iu.edu/about/index.html">Indiana University</a></li>
-                            <li><a href="http://globalnoc.iu.edu/index.html">GlobalNOC </a></li>
-                            <li><a href="http://cenic.org/about/about-overview">Cenic </a></li>
-                        </ul>
-                    </div>
-                </div>
-                <p class="copyright">Indiana University GlobalNOC © 2016</p>
+                </nav>
             </div>
-        </footer>
-    </div>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/aconst.js"></script>
-    <script src="assets/js/form.js"></script>
-    <script src="assets/js/create.js"></script>
-    <script src="assets/js/detail.js"></script>
-    <script src="assets/js/edit.js"></script>
-    <script src="assets/js/header.js"></script>
-    <script src="assets/js/js.cookie.js"></script>
-    <script src="assets/js/switch.js"></script>
-    <script src="assets/js/workgroup.js"></script>
-    <script src="assets/js/zrouter.js"></script>
-    <script src="assets/js/polyfill/urlsearchparams.js"></script>
-</body>
+        </div>
+        <div style="background-color:#f0f0f0;">
+            <ol class="breadcrumb container">
+                <li><a href="index.html"><span>Home</span></a></li>
+                <li><a href="index.html"><span>Switches </span></a></li>
+                <li><a><span id="switch_name_crumb">sw.guam.big.net</span></a></li>
+            </ol>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="alert alert-danger" role="alert" id="error" style="display:none;"><span id="error_text"> </span><button class="btn btn-danger" type="button" id="error_exit" style="background-color:rgb(231, 76, 60);padding:0px 5px;float:right;"><i class="glyphicon glyphicon-remove"></i></button></div>
+                    <form>
+                        <div class="form-group">
+                            <label class="control-label">Description </label>
+                            <input class="form-control" type="text" placeholder="Simple VLAN" id="description" style="min-width:360px;width:90%;">
+                        </div>
+
+                        <div id="endpoint-container">
+                            <label>Endpoints </label>
+                        </div>
+                        <div class="col-md-12" style="padding:0px;">
+                            <button class="btn btn-info" type="button" id="create_endpoint_button" style="min-width:360px;width:45%;">
+                                <i class="glyphicon glyphicon-plus"></i>
+                                   Add Endpoint
+                            </button>
+                            <button class="btn btn-info" type="button" style="min-width:360px;width:45%;"> <!-- id="create_endpoint_button" -->
+                                <i class="glyphicon "></i>
+                                  Filter VLANs
+                            </button>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">VLAN </label>
+                            <select class="form-control" id="vlan" style="min-width:360px;width:90%;">
+                                <optgroup id="vlan_optgroup">  <!-- label="Add and select an endpoint to filter VLANS" -->
+                                    <option value="12" selected="">200</option>
+                                    <option value="13">210</option>
+                                    <option value="14">220</option>
+                                </optgroup>
+                            </select>
+                        </div>
+
+                        <button class="btn btn-success" type="button" id="create_button" style="margin:5px 5px 5px 0px;">
+                            Create
+                        </button>
+                        <button class="btn btn-danger" type="button" id="cancel_button">
+                            Cancel
+                        </button></form>
+                </div>
+            </div>
+        </div>
+        <div></div>
+        <div class="footer-dark">
+            <footer>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-md-push-6 item text">
+                            <h3>Virtrual Customer Equipment</h3>
+                            <p>Virtual Customer Equipment (VCE) provides a means for multiple users to jointly manage network exchange point resources through a simple web based customer centric provisioning portal.&nbsp;&nbsp;The system is collaboration between
+                                CENIC and Indiana University GlobalNOC. </p>
+                        </div>
+                        <div class="col-md-3 col-md-pull-6 col-sm-4 item">
+                            <h3>Support </h3>
+                            <ul>
+                                <li><a href="mailto:nac@tick.globalnoc.iu.edu?Subject=VCE%20Issue%20Report">Report Issue</a></li>
+                                <li><a href="https://globalnoc.iu.edu/">Documentation </a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3 col-md-pull-6 col-sm-4 item">
+                            <h3>About</h3>
+                            <ul>
+                                <li><a href="https://www.iu.edu/about/index.html">Indiana University</a></li>
+                                <li><a href="http://globalnoc.iu.edu/index.html">GlobalNOC </a></li>
+                                <li><a href="http://cenic.org/about/about-overview">Cenic </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="copyright">Indiana University GlobalNOC © 2016</p>
+                </div>
+            </footer>
+        </div>
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/js/aconst.js"></script>
+        <script src="assets/js/form.js"></script>
+        <script src="assets/js/create.js"></script>
+        <script src="assets/js/detail.js"></script>
+        <script src="assets/js/edit.js"></script>
+        <script src="assets/js/header.js"></script>
+        <script src="assets/js/js.cookie.js"></script>
+        <script src="assets/js/switch.js"></script>
+        <script src="assets/js/workgroup.js"></script>
+        <script src="assets/js/zrouter.js"></script>
+        <script src="assets/js/polyfill/urlsearchparams.js"></script>
+    </body>
 
 </html>
