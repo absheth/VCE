@@ -86,8 +86,8 @@ function loadPorts() {
                 return displayError(data.error.msg);
             }
 
-            console.log("get_interfaces_operational_status");
-            console.log(data);
+            // console.log("get_interfaces_operational_status");
+            // console.log(data);
 
             var table = document.getElementById("port_table");
             table.innerHTML = "";
@@ -118,22 +118,31 @@ function loadPorts() {
                     status.innerHTML = 'Disabled';
                 }
             }
-
+            
+            document.getElementById('port_subtab').style.display = 'none';
             $('#port_table').off('click', '.clickable-row');
             $('#port_table').on('click', '.clickable-row', function(e) {
                 $(this).addClass('active').siblings().removeClass('active');
-
                 var cookie = Cookies.getJSON('vce');
                 cookie.port = $(this)[0].id;
                 Cookies.set('vce', cookie);
+                
+                document.getElementById('port_subtab').style.display = 'block';
+                var grafana = document.getElementById('grafana-plugin');
+
+                grafana.src = "http://absheth-dev.grnoc.iu.edu:3000/d-solo/oigOLR1ik/mlxe16-2?orgId=1&var-node="+cookie.switch+"&var-intf="+cookie.port.replace(/ /g,'')+"&refresh=5s&panelId=2";
 
                 // Reset the command selection box
                 document.getElementById('port_select').disabled = false;
                 document.getElementById('port_select').selectedIndex = 0;
                 document.getElementById('port_form_container').setAttribute('style', 'display: none;');
 
+
                 // Load commands available for this port
                 getPortCommands();
+
+
+
             });
         });
     });

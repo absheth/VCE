@@ -1,256 +1,299 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>vce</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
-    <link rel="stylesheet" href="assets/css/Footer-Clean.css">
-    <link rel="stylesheet" href="assets/css/Footer-Dark.css">
-    <link rel="stylesheet" href="assets/css/Header-Dark.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
-</head>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>vce</title>
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
+        <link rel="stylesheet" href="assets/css/Footer-Clean.css">
+        <link rel="stylesheet" href="assets/css/Footer-Dark.css">
+        <link rel="stylesheet" href="assets/css/Header-Dark.css">
+        <link rel="stylesheet" href="assets/css/styles.css">
+    </head>
 
-<body>
-    <div>
-        <div class="header-dark">
-            <nav class="navbar navbar-default navigation-clean-search">
+    <body>
+        <div>
+            <div class="header-dark">
+                <nav class="navbar navbar-default navigation-clean-search">
+                    <div class="container">
+                        <div class="navbar-header"><a class="navbar-brand" href="#">Virtual Customer Equipment </a><button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div>
+                        <div
+                            class="collapse navbar-collapse" id="navcol-1">
+                            <ul class="nav navbar-nav">
+                                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Switches <span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu" id="switch_menu">
+                                        <li role="presentation"><a href="#">sw.guam </a></li>
+                                        <li role="presentation"><a href="#">sw2.seattle </a></li>
+                                        <li role="presentation"><a href="#">exsx.la </a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <form class="navbar-form navbar-left" target="_self">
+                            </form>
+                            <div class="navbar-form navbar-right" style="display: none;" id="admin-button">
+                                <a href="admin/switches.html"><button class="btn btn-default btn-sm col-xs-12 cold-md-4" aria-expanded="false" type="button" style="margin-top: 6px;">Admin</button></a>
+                            </div>
+                            <div class="navbar-form navbar-right">
+                                <div class="dropdown">
+                                    <button class="btn btn-default btn-sm dropdown-toggle col-xs-12 cold-md-4" data-toggle="dropdown" aria-expanded="false" type="button" id="workgroup-selector" style="margin-top: 6px;"></button>
+                                    <ul class="dropdown-menu" role="menu" id="workgroup-selector-options"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div style="background-color:#f0f0f0;">
+            <ol class="breadcrumb container">
+                <li><a href="index.html"><span>Home</span></a></li>
+                <li><a href="index.html"><span>Switches </span></a></li>
+                <li><a><span id="switch_name_crumb">demonet</span></a></li>
+            </ol>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="alert alert-success" role="alert" id="success" style="display:none;"><span id="success_text"> </span><button class="btn btn-success" type="button" id="success_exit" style="background-color:#18bc9c;padding:0px 5px;float:right;"><i class="glyphicon glyphicon-remove"></i></button></div>
+                    <div class="alert alert-danger"
+                         role="alert" id="error" style="display:none;"><span id="error_text"> </span><button class="btn btn-danger" type="button" id="error_exit" style="background-color:rgb(231, 76, 60);padding:0px 5px;float:right;"><i class="glyphicon glyphicon-remove"></i></button></div>
+                    <div>
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#switch" role="tab" data-toggle="tab">Switch</a></li>
+                            <li><a href="#vlan" role="tab" data-toggle="tab">VLANs </a></li>
+                            <li><a href="#port" role="tab" data-toggle="tab">Ports </a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane fade in active" role="tabpanel" id="switch">
+                                <div class="col-md-12">
+                                    <h4>Status </h4>
+                                    <div class="row">
+                                        <div class="col-md-12 switch-status-col">
+                                            <div class="table-responsive" style="flex:1;min-width:300px;">
+                                                <table class="table table-condensed">
+                                                    <tbody id="switch_detail_table">
+                                                        <tr>
+                                                            <td><strong>Name</strong> </td>
+                                                            <td id="switch_name"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><strong>Description</strong></td>
+                                                            <td id="switch_description"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><strong>Status</strong> </td>
+                                                            <td id="switch_status"> </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="table-responsive" style="flex:1;min-width:300px;">
+                                                <table class="table table-condensed">
+                                                    <tbody id="switch_detail_table">
+                                                        <tr>
+                                                            <td><strong>VLANS</strong></td>
+                                                            <td id="switch_vlans"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><strong>Ports</strong></td>
+                                                            <td id="switch_ports"> </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <form class="form-horizontal">
+                                                <div class="form-group"><label class="control-label">Commands </label><select class="form-control" id="switch_select"><option value="" selected=""></option><optgroup label="Show Commands" id="switch_show_commands"></optgroup><optgroup label="Config Actions" id="switch_action_commands"></optgroup></select></div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12" id="switch_form_container"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h4>Results </h4>
+                                            <div class="well" id="switch_response_well"><span> </span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" role="tabpanel" id="vlan">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-12" style="display:flex;flex-direction:row;padding:10px;justify-content:start;"><button class="btn btn-success" type="button" id="add_vlan" style="margin:2px;">Create </button><button class="btn btn-primary" type="button" id="edit_vlan" style="margin:2px;display:none;">Modify </button><button class="btn btn-danger"
+                                             type="button" id="delete_vlan" style="margin:2px;display:none;">Delete </button></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h5>Status </h5>
+                                            <div class="table-responsive" style="display:block;max-height:350px;overflow-y:scroll;">
+                                                <table class="table table-striped table-hover table-condensed">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>VLAN </th>
+                                                            <th>Description </th>
+                                                            <th>Ports </th>
+                                                            <th>Status </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="vlan_table"></tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <form class="form-horizontal">
+                                                <div class="form-group"><label class="control-label">Commands </label><select class="form-control" disabled="" id="vlan_select"><option value=""></option><optgroup label="Show Commands" id="vlan_show_commands"></optgroup></select></div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12" id="vlan_form_container"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h4>Results </h4>
+                                            <div class="well" id="vlan_response_well"><span> </span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" role="tabpanel" id="port">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h5>Status </h5>
+                                                <div class="table-responsive" style="display:block;max-height:350px;overflow-y:scroll;">
+                                                    <table class="table table-striped table-hover table-condensed">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Port </th>
+                                                                <th>Description </th>
+                                                                <th>VLANS </th>
+                                                                <th>Status </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="port_table"></tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="container" id="port_subtab">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div>
+                                                <ul class="nav nav-tabs">
+                                                    <li class="active"><a href="#command" role="tab" data-toggle="tab">Command</a></li>
+                                                    <li><a href="#stats" role="tab" data-toggle="tab">Statistics </a></li>
+                                                </ul>
+                                                <div class="tab-content">
+                                                    <div class="tab-pane fade in active" role="tabpanel" id="command">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <form class="form-horizontal">
+                                                                    <div class="form-group">
+                                                                        <label class="control-label">Commands </label>
+                                                                        <select class="form-control" disabled="" id="port_select">
+                                                                            <option value="" selected=""></option>
+                                                                            <optgroup label="Show Commands" id="port_show_commands"></optgroup>
+                                                                            <optgroup label="Config Actions" id="port_action_commands"></optgroup>
+                                                                        </select>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-md-12" id="port_form_container"></div>
+
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <h4 class="text-left">Results </h4>
+                                                                <div class="well" id="port_response_well"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="tab-pane fade" role="tabpanel" id="stats">
+                                                        <div class="col-md-12">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <!-- <form class="form-horizontal"> -->
+                                                                    <h5>Click on the port to generate the graph</h5>
+                                                                    <iframe id="grafana-plugin" src="" width="100%" height="200" frameborder="0"></iframe>
+                                                                    <!-- </form> -->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-dark">
+            <footer>
                 <div class="container">
-                    <div class="navbar-header"><a class="navbar-brand" href="#">Virtual Customer Equipment </a><button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div>
-                    <div
-                        class="collapse navbar-collapse" id="navcol-1">
-                        <ul class="nav navbar-nav">
-                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Switches <span class="caret"></span></a>
-                                <ul class="dropdown-menu" role="menu" id="switch_menu">
-                                    <li role="presentation"><a href="#">sw.guam </a></li>
-                                    <li role="presentation"><a href="#">sw2.seattle </a></li>
-                                    <li role="presentation"><a href="#">exsx.la </a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <form class="navbar-form navbar-left" target="_self">
-                        </form>
-                        <div class="navbar-form navbar-right" style="display: none;" id="admin-button">
-                          <a href="admin/switches.html"><button class="btn btn-default btn-sm col-xs-12 cold-md-4" aria-expanded="false" type="button" style="margin-top: 6px;">Admin</button></a>
+                    <div class="row">
+                        <div class="col-md-6 col-md-push-6 item text">
+                            <h3>Virtrual Customer Equipment</h3>
+                            <p>Virtual Customer Equipment (VCE) provides a means for multiple users to jointly manage network exchange point resources through a simple web based customer centric provisioning portal.&nbsp;&nbsp;The system is collaboration between
+                                CENIC and Indiana University GlobalNOC. </p>
                         </div>
-                        <div class="navbar-form navbar-right">
-                          <div class="dropdown">
-                            <button class="btn btn-default btn-sm dropdown-toggle col-xs-12 cold-md-4" data-toggle="dropdown" aria-expanded="false" type="button" id="workgroup-selector" style="margin-top: 6px;"></button>
-                            <ul class="dropdown-menu" role="menu" id="workgroup-selector-options"></ul>
-                          </div>
+                        <div class="col-md-3 col-md-pull-6 col-sm-4 item">
+                            <h3>Support </h3>
+                            <ul>
+                                <li><a href="mailto:nac@tick.globalnoc.iu.edu?Subject=VCE%20Issue%20Report">Report Issue</a></li>
+                                <li><a href="https://globalnoc.iu.edu/">Documentation </a></li>
+                            </ul>
                         </div>
+                        <div class="col-md-3 col-md-pull-6 col-sm-4 item">
+                            <h3>About</h3>
+                            <ul>
+                                <li><a href="https://www.iu.edu/about/index.html">Indiana University</a></li>
+                                <li><a href="http://globalnoc.iu.edu/index.html">GlobalNOC </a></li>
+                                <li><a href="http://cenic.org/about/about-overview">Cenic </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="copyright">Indiana University GlobalNOC © 2016</p>
                 </div>
+            </footer>
         </div>
-        </nav>
-    </div>
-    </div>
-    <div style="background-color:#f0f0f0;">
-        <ol class="breadcrumb container">
-            <li><a href="index.html"><span>Home</span></a></li>
-            <li><a href="index.html"><span>Switches </span></a></li>
-            <li><a><span id="switch_name_crumb">demonet</span></a></li>
-        </ol>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="alert alert-success" role="alert" id="success" style="display:none;"><span id="success_text"> </span><button class="btn btn-success" type="button" id="success_exit" style="background-color:#18bc9c;padding:0px 5px;float:right;"><i class="glyphicon glyphicon-remove"></i></button></div>
-                <div class="alert alert-danger"
-                    role="alert" id="error" style="display:none;"><span id="error_text"> </span><button class="btn btn-danger" type="button" id="error_exit" style="background-color:rgb(231, 76, 60);padding:0px 5px;float:right;"><i class="glyphicon glyphicon-remove"></i></button></div>
-                <div>
-                    <ul class="nav nav-tabs">
-                        <li class="active"><a href="#switch" role="tab" data-toggle="tab">Switch</a></li>
-                        <li><a href="#vlan" role="tab" data-toggle="tab">VLANs </a></li>
-                        <li><a href="#port" role="tab" data-toggle="tab">Ports </a></li>
-                    </ul>
-                    <div class="tab-content">
-                        <div class="tab-pane fade in active" role="tabpanel" id="switch">
-                            <div class="col-md-12">
-                                <h4>Status </h4>
-                                <div class="row">
-                                    <div class="col-md-12 switch-status-col">
-                                        <div class="table-responsive" style="flex:1;min-width:300px;">
-                                            <table class="table table-condensed">
-                                                <tbody id="switch_detail_table">
-                                                    <tr>
-                                                        <td><strong>Name</strong> </td>
-                                                        <td id="switch_name"> </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><strong>Description</strong></td>
-                                                        <td id="switch_description"> </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><strong>Status</strong> </td>
-                                                        <td id="switch_status"> </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="table-responsive" style="flex:1;min-width:300px;">
-                                            <table class="table table-condensed">
-                                                <tbody id="switch_detail_table">
-                                                    <tr>
-                                                        <td><strong>VLANS</strong></td>
-                                                        <td id="switch_vlans"> </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><strong>Ports</strong></td>
-                                                        <td id="switch_ports"> </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <form class="form-horizontal">
-                                            <div class="form-group"><label class="control-label">Commands </label><select class="form-control" id="switch_select"><option value="" selected=""></option><optgroup label="Show Commands" id="switch_show_commands"></optgroup><optgroup label="Config Actions" id="switch_action_commands"></optgroup></select></div>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12" id="switch_form_container"></div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <h4>Results </h4>
-                                        <div class="well" id="switch_response_well"><span> </span></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" role="tabpanel" id="vlan">
-                            <div class="col-md-12">
-                                <div class="row">
-                                    <div class="col-md-12" style="display:flex;flex-direction:row;padding:10px;justify-content:start;"><button class="btn btn-success" type="button" id="add_vlan" style="margin:2px;">Create </button><button class="btn btn-primary" type="button" id="edit_vlan" style="margin:2px;display:none;">Modify </button><button class="btn btn-danger"
-                                            type="button" id="delete_vlan" style="margin:2px;display:none;">Delete </button></div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <h5>Status </h5>
-                                        <div class="table-responsive" style="display:block;max-height:350px;overflow-y:scroll;">
-                                            <table class="table table-striped table-hover table-condensed">
-                                                <thead>
-                                                    <tr>
-                                                        <th>VLAN </th>
-                                                        <th>Description </th>
-                                                        <th>Ports </th>
-                                                        <th>Status </th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody id="vlan_table"></tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <form class="form-horizontal">
-                                            <div class="form-group"><label class="control-label">Commands </label><select class="form-control" disabled="" id="vlan_select"><option value=""></option><optgroup label="Show Commands" id="vlan_show_commands"></optgroup></select></div>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12" id="vlan_form_container"></div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <h4>Results </h4>
-                                        <div class="well" id="vlan_response_well"><span> </span></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" role="tabpanel" id="port">
-                            <div class="col-md-12">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <h5>Status </h5>
-                                        <div class="table-responsive" style="display:block;max-height:350px;overflow-y:scroll;">
-                                            <table class="table table-striped table-hover table-condensed">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Port </th>
-                                                        <th>Description </th>
-                                                        <th>VLANS </th>
-                                                        <th>Status </th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody id="port_table"></tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <form class="form-horizontal">
-                                            <div class="form-group"><label class="control-label">Commands </label><select class="form-control" disabled="" id="port_select"><option value="" selected=""></option><optgroup label="Show Commands" id="port_show_commands"></optgroup><optgroup label="Config Actions" id="port_action_commands"></optgroup></select></div>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12" id="port_form_container"></div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <h4 class="text-left">Results </h4>
-                                        <div class="well" id="port_response_well"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="footer-dark">
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-md-push-6 item text">
-                        <h3>Virtrual Customer Equipment</h3>
-                        <p>Virtual Customer Equipment (VCE) provides a means for multiple users to jointly manage network exchange point resources through a simple web based customer centric provisioning portal.&nbsp;&nbsp;The system is collaboration between
-                            CENIC and Indiana University GlobalNOC. </p>
-                    </div>
-                    <div class="col-md-3 col-md-pull-6 col-sm-4 item">
-                        <h3>Support </h3>
-                        <ul>
-                            <li><a href="mailto:nac@tick.globalnoc.iu.edu?Subject=VCE%20Issue%20Report">Report Issue</a></li>
-                            <li><a href="https://globalnoc.iu.edu/">Documentation </a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3 col-md-pull-6 col-sm-4 item">
-                        <h3>About</h3>
-                        <ul>
-                            <li><a href="https://www.iu.edu/about/index.html">Indiana University</a></li>
-                            <li><a href="http://globalnoc.iu.edu/index.html">GlobalNOC </a></li>
-                            <li><a href="http://cenic.org/about/about-overview">Cenic </a></li>
-                        </ul>
-                    </div>
-                </div>
-                <p class="copyright">Indiana University GlobalNOC © 2016</p>
-            </div>
-        </footer>
-    </div>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/aconst.js"></script>
-    <script src="assets/js/form.js"></script>
-    <script src="assets/js/create.js"></script>
-    <script src="assets/js/detail.js"></script>
-    <script src="assets/js/edit.js"></script>
-    <script src="assets/js/header.js"></script>
-    <script src="assets/js/js.cookie.js"></script>
-    <script src="assets/js/switch.js"></script>
-    <script src="assets/js/workgroup.js"></script>
-    <script src="assets/js/zrouter.js"></script>
-    <script src="assets/js/polyfill/urlsearchparams.js"></script>
-</body>
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/js/aconst.js"></script>
+        <script src="assets/js/form.js"></script>
+        <script src="assets/js/create.js"></script>
+        <script src="assets/js/detail.js"></script>
+        <script src="assets/js/edit.js"></script>
+        <script src="assets/js/header.js"></script>
+        <script src="assets/js/js.cookie.js"></script>
+        <script src="assets/js/switch.js"></script>
+        <script src="assets/js/workgroup.js"></script>
+        <script src="assets/js/zrouter.js"></script>
+        <script src="assets/js/polyfill/urlsearchparams.js"></script>
+    </body>
 
 </html>
